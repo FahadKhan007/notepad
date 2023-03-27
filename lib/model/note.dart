@@ -2,12 +2,8 @@ final String tableNotes = 'notes';
 
 class NoteFields {
   static final List<String> values = [
-    id,
-    isImportant,
-    number,
-    title,
-    description,
-    time
+    /// Add all fields
+    id, isImportant, number, title, description, time
   ];
 
   static final String id = '_id';
@@ -44,12 +40,14 @@ class Note {
     DateTime? createdTime,
   }) =>
       Note(
+        id: id ?? this.id,
         isImportant: isImportant ?? this.isImportant,
         number: number ?? this.number,
         title: title ?? this.title,
         description: description ?? this.description,
         createdTime: createdTime ?? this.createdTime,
       );
+
   static Note fromJson(Map<String, Object?> json) => Note(
         id: json[NoteFields.id] as int?,
         isImportant: json[NoteFields.isImportant] == 1,
@@ -58,6 +56,7 @@ class Note {
         description: json[NoteFields.description] as String,
         createdTime: DateTime.parse(json[NoteFields.time] as String),
       );
+
   Map<String, Object?> toJson() => {
         NoteFields.id: id,
         NoteFields.title: title,

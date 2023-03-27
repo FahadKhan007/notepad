@@ -13,10 +13,10 @@ class NoteDetailsScreen extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _NoteDetailsScreenState createState() => _NoteDetailsScreenState();
+  _NoteDetailPageState createState() => _NoteDetailPageState();
 }
 
-class _NoteDetailsScreenState extends State<NoteDetailsScreen> {
+class _NoteDetailPageState extends State<NoteDetailsScreen> {
   late Note note;
   bool isLoading = false;
 
@@ -49,26 +49,29 @@ class _NoteDetailsScreenState extends State<NoteDetailsScreen> {
                   children: [
                     Text(
                       note.title,
-                      style: TextStyle(
-                        color: Colors.teal,
-                        fontFamily: 'PriceDown',
+                      style: const TextStyle(
+                        color: Colors.white,
                         fontSize: 22,
-                        fontWeight: FontWeight.w100,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Designer',
                       ),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Text(
                       DateFormat.yMMMd().format(note.createdTime),
-                      style: TextStyle(
-                        fontFamily: 'PriceDown',
-                        fontSize: 20,
-                        color: Colors.black26,
+                      style: const TextStyle(
+                        color: Colors.white38,
+                        fontFamily: 'Designer',
                       ),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Text(
                       note.description,
-                      style: TextStyle(color: Colors.teal[300], fontSize: 18),
+                      style: const TextStyle(
+                        color: Colors.white70,
+                        fontSize: 18,
+                        fontFamily: 'Designer',
+                      ),
                     )
                   ],
                 ),
@@ -81,7 +84,7 @@ class _NoteDetailsScreenState extends State<NoteDetailsScreen> {
         if (isLoading) return;
 
         await Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => AddEditNoteScreen(note: note),
+          builder: (context) => AddEditNotePage(note: note),
         ));
 
         refreshNote();

@@ -25,26 +25,23 @@ class NotesDatabase {
 
   Future _createDB(Database db, int version) async {
     final idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
+    final textType = 'TEXT NOT NULL';
     final boolType = 'BOOLEAN NOT NULL';
     final integerType = 'INTEGER NOT NULL';
-    final textType = 'TEXT NOT NULL';
 
-    await db.execute(
-      '''
-      CREATE TABLE $tableNotes ( 
-        ${NoteFields.id} $idType, 
-        ${NoteFields.isImportant} $boolType,
-        ${NoteFields.number} $integerType,
-        ${NoteFields.title} $textType,
-        ${NoteFields.description} $textType,
-        ${NoteFields.time} $textType
-      )
-      ''',
-    );
+    await db.execute('''
+CREATE TABLE $tableNotes ( 
+  ${NoteFields.id} $idType, 
+  ${NoteFields.isImportant} $boolType,
+  ${NoteFields.number} $integerType,
+  ${NoteFields.title} $textType,
+  ${NoteFields.description} $textType,
+  ${NoteFields.time} $textType
+  )
+''');
   }
 
   Future<Note> create(Note note) async {
-    // DATABASE REFERENCE
     final db = await instance.database;
 
     // final json = note.toJson();

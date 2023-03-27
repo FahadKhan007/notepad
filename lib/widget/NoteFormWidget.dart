@@ -47,9 +47,9 @@ class NoteFormWidget extends StatelessWidget {
                 ],
               ),
               buildTitle(),
-              const SizedBox(height: 8),
+              SizedBox(height: 8),
               buildDescription(),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
             ],
           ),
         ),
@@ -58,15 +58,19 @@ class NoteFormWidget extends StatelessWidget {
   Widget buildTitle() => TextFormField(
         maxLines: 1,
         initialValue: title,
-        style: const TextStyle(
-          color: Colors.teal,
+        style: TextStyle(
+          color: Colors.white70,
           fontWeight: FontWeight.bold,
           fontSize: 24,
+          fontFamily: 'Designer',
         ),
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: 'Title',
-          hintStyle: TextStyle(color: Colors.teal[100]),
+          hintStyle: TextStyle(
+            color: Colors.white70,
+            fontFamily: 'Designer',
+          ),
         ),
         validator: (title) =>
             title != null && title.isEmpty ? 'The title cannot be empty' : null,
@@ -76,11 +80,18 @@ class NoteFormWidget extends StatelessWidget {
   Widget buildDescription() => TextFormField(
         maxLines: 5,
         initialValue: description,
-        style: const TextStyle(color: Colors.teal, fontSize: 18),
+        style: TextStyle(
+          color: Colors.white60,
+          fontSize: 18,
+          fontFamily: 'Designer',
+        ),
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: 'Type something...',
-          hintStyle: TextStyle(color: Colors.teal[100]),
+          hintStyle: TextStyle(
+            color: Colors.white60,
+            fontFamily: 'Designer',
+          ),
         ),
         validator: (title) => title != null && title.isEmpty
             ? 'The description cannot be empty'

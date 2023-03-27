@@ -3,18 +3,18 @@ import 'package:notepad/database/notes_db.dart';
 import 'package:notepad/model/note.dart';
 import 'package:notepad/widget/NoteFormWidget.dart';
 
-class AddEditNoteScreen extends StatefulWidget {
+class AddEditNotePage extends StatefulWidget {
   final Note? note;
 
-  const AddEditNoteScreen({
+  const AddEditNotePage({
     Key? key,
     this.note,
   }) : super(key: key);
   @override
-  _AddEditNoteScreenState createState() => _AddEditNoteScreenState();
+  _AddEditNotePageState createState() => _AddEditNotePageState();
 }
 
-class _AddEditNoteScreenState extends State<AddEditNoteScreen> {
+class _AddEditNotePageState extends State<AddEditNotePage> {
   final _formKey = GlobalKey<FormState>();
   late bool isImportant;
   late int number;
@@ -60,17 +60,14 @@ class _AddEditNoteScreenState extends State<AddEditNoteScreen> {
       padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          foregroundColor: Colors.teal[50],
-          backgroundColor: isFormValid ? null : Colors.teal[200],
+          foregroundColor: Colors.white,
+          backgroundColor: isFormValid ? null : Colors.grey.shade700,
         ),
         onPressed: addOrUpdateNote,
-        child: const Text(
+        child: Text(
           'Save',
           style: TextStyle(
-            fontFamily: 'PriceDown',
-            fontSize: 20,
-            // fontStyle: FontStyle.italic,
-            fontWeight: FontWeight.w100,
+            fontFamily: 'Designer',
           ),
         ),
       ),

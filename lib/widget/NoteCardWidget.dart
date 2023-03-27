@@ -32,23 +32,26 @@ class NoteCardWidget extends StatelessWidget {
       color: color,
       child: Container(
         constraints: BoxConstraints(minHeight: minHeight),
-        padding: const EdgeInsets.all(8),
+        padding: EdgeInsets.all(8),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               time,
-              style: TextStyle(color: Colors.grey.shade700),
+              style: TextStyle(
+                color: Colors.grey.shade700,
+                fontFamily: 'Designer',
+              ),
             ),
-            const SizedBox(height: 4),
+            SizedBox(height: 4),
             Text(
               note.title,
               style: const TextStyle(
                 color: Colors.black,
-                fontFamily: 'Pricedown',
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
+                fontFamily: 'Designer',
               ),
             ),
           ],
